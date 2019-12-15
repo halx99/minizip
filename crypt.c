@@ -31,6 +31,10 @@
 
 #ifdef _WIN32
 #  include <windows.h>
+/* FIXME:
+The wincrypt API is deprecated. New and existing software should start using Cryptography Next Generation APIs.
+Microsoft may remove this API in future releases.
+*/
 #  include <wincrypt.h>
 #else
 #  include <sys/stat.h>
