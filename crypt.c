@@ -64,7 +64,7 @@ uint8_t update_keys(uint32_t *pkeys, const z_crc_t *pcrc_32_tab, int32_t c)
     (*(pkeys+1)) += (*(pkeys+0)) & 0xff;
     (*(pkeys+1)) = (*(pkeys+1)) * 134775813L + 1;
     {
-        register int32_t keyshift = (int32_t)((*(pkeys + 1)) >> 24);
+        int32_t keyshift = (int32_t)((*(pkeys + 1)) >> 24);
         (*(pkeys+2)) = (uint32_t)CRC32((*(pkeys+2)), keyshift);
     }
     return c;
