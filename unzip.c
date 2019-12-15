@@ -1960,7 +1960,8 @@ extern int ZEXPORT unzSeek64(unzFile file, uint64_t offset, int origin)
         s->pfile_in_zip_read->stream.avail_in = 0;
         s->pfile_in_zip_read->stream.next_in = 0;
 
-        s->pfile_in_zip_read->pos_in_zipfile = s->pfile_in_zip_read->offset_local_extrafield + position;
+        s->pfile_in_zip_read->pos_in_zipfile = s->pfile_in_zip_read->offset_local_extrafield + 
+            s->pfile_in_zip_read->size_local_extrafield + position;
         s->pfile_in_zip_read->rest_read_compressed = s->cur_file_info.compressed_size - position;
     }
 
